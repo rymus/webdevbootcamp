@@ -1,0 +1,67 @@
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="first.css">
+	<link href='https://fonts.googleapis.com/css?family=Karla' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<h1>Register for Some Shit</h1>
+<form>
+	<label for="fname">First Name: </label>
+	<input type="text" id="fname" name="fname" required placeholder="John">
+
+	<label for="lname">Last Name: </label>
+	<input type="text" id="lname" name="lname" required placeholder="Smith">
+	<br>
+	<label for="male">Male </label>
+	<input type="radio" name="gender" value="male">
+
+	<label for="female">Female </label>
+	<input type="radio" name="gender" value="female">
+
+	<label for="other">Other </label>
+	<input type="radio" name="gender" value="other">
+	<br>
+	<label for="email">Email: </label>
+	<input type="email" id="email" name="email" required placeholder="johnsmith@email.com">
+
+	<label for="password">Password: </label>
+	<input type="password" id="password" name="password" pattern=".{5,10}" required title="5 to 10 characters" placeholder="Password">
+	<br>
+	<label>Birthday:
+	<select name="bmon" value="Month">
+		<option selected disabled>Month</option>
+		<option>Jan</option>
+		<option>Feb</option>
+		<option>Mar</option>
+	</select>
+
+	<select name="bday" placeholder="Day">
+		<option selected disabled>Day</option>
+		<option>1</option>
+		<option>2</option>
+		<option>3</option>
+	</select>
+
+	<select name="byear" placeholder="Year">
+		<option selected disabled>Year</option>
+		<option>1980</option>
+		<option>1981</option>
+		<option>1982</option>
+	</select> 
+	</label>
+<p>I agree to the terms and conditions
+	<input type="checkbox" name="tc">
+<br>
+	<button>Submit</button>
+</form>
+
+<ul>
+	<li>test</li>
+	<li>test</li><li>test</li>
+	<li>test</li><li>test</li>
+	<li>test</li>
+</ul>
+
+</body>
+</html>

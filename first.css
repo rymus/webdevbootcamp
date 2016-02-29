@@ -1,0 +1,47 @@
+body {
+	background: lightslategrey;
+}
+
+h1,h2 {
+	font-family: Karla;
+}
+
+p,label {
+	font-family: karla;
+	font-size: 15px;
+	
+}
+
+button {
+	font-family: tahoma;
+	font-weight: bold;
+}
+
+option {
+	font-family: karla;
+	}
+
+input {
+	font-family: karla;
+/*	background: lightslategrey;
+	border: 0px;*/
+}
+
+li {
+	list-style-type: none;
+	font-family: karla;
+}
+
+.everysecond {
+	color: white;
+}
+
+/*input[type="password"] {
+	background: red;
+	border: red;
+}*/
+
+li:nth-of-type(even) {
+	color: blue;
+	text-indent: 5px;
+}
