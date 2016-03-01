@@ -9,39 +9,78 @@ var resetButton = document.querySelector("#reset"); // Reset button
 var easyBtn = document.querySelector("#easyBtn"); // Easy mode button
 var hardBtn = document.querySelector("#hardBtn"); // Hard more button
 
-// What happens when the easy mode button is clicked
-easyBtn.addEventListener("click", function() {
-	easyBtn.classList.add("selected");
-	hardBtn.classList.remove("selected");
-	numSquares = 3;
-	colours = generateRandomColours(numSquares);
-	pickedColour = pickColour();
-	colourDisplay.textContent = pickedColour;
+var modeButtons = document.querySelectorAll(".mode");
 
-	for (var i = 0; i < squares.length; i++) {
-		if (colours[i]) {
+for(var i = 0; i < modeButtons.length; i++) {
+	modeButtons[i].addEventListener("click", function() {
+		modeButtons[0].classList.remove("selected");
+		modeButtons[1].classList.remove("selected");
+		this.classList.add("selected");
+		this.textContent === "Easy" ? numSquares = 3: numSquares = 6;
+		reset();
+	});
+}
+
+		// NOTE TO SELF!!!
+		// For some reason, after the above (and below) changes,
+		// only three squares are appearing, even in hard mode.
+		//
+		// Check if 6 colours are being added to the array
+		// or if 6 colours are being added, check that the last
+		// three squares aren't remaining hidden (style.display = "none")
+
+
+
+function reset() {
+	colours = generateRandomColours(numSquares); // generate new colours
+	pickedColour = pickColour(); // pick a new random colour
+	colourDisplay.textContent = pickedColour; //change colour of squares
+	h1.style.background = "steelblue";
+	resetButton.textContent = "New Colours";
+	messageDisplay.textContent = "";
+	for(var i = 0; i < squares.length; i++) {
+		if(colours[i]) {
 			squares[i].style.background = colours[i];
 		}
 		else {
 			squares[i].style.display = "none";
 		}
-	}	
-});
-
-// What happens when the hard mode button is clicked
-hardBtn.addEventListener("click", function() {
-	easyBtn.classList.remove("selected");
-	hardBtn.classList.add("selected");
-	numSquares = 6;
-	colours = generateRandomColours(numSquares);
-	pickedColour = pickColour();
-	colourDisplay.textContent = pickedColour;
-
-	for (var i = 0; i < squares.length; i++) {
-		squares[i].style.background = colours[i];
-		squares[i].style.display = "block";
 	}
-});
+}
+
+// // What happens when the easy mode button is clicked
+// easyBtn.addEventListener("click", function() {
+// 	easyBtn.classList.add("selected");
+// 	hardBtn.classList.remove("selected");
+// 	numSquares = 3;
+// 	colours = generateRandomColours(numSquares);
+// 	pickedColour = pickColour();
+// 	colourDisplay.textContent = pickedColour;
+
+// 	for (var i = 0; i < squares.length; i++) {
+// 		if (colours[i]) {
+// 			squares[i].style.background = colours[i];
+// 		}
+// 		else {
+// 			squares[i].style.display = "none";
+// 		}
+// 	}	
+// });
+
+// // What happens when the hard mode button is clicked
+// hardBtn.addEventListener("click", function() {
+// 	easyBtn.classList.remove("selected");
+// 	hardBtn.classList.add("selected");
+// 	numSquares = 6;
+// 	colours = generateRandomColours(numSquares);
+// 	pickedColour = pickColour();
+// 	colourDisplay.textContent = pickedColour;
+
+// 	for (var i = 0; i < squares.length; i++) {
+// 		squares[i].style.background = colours[i];
+// 		squares[i].style.display = "block";
+// 	}
+// });
 
 // Reset all the things.
 resetButton.addEventListener("click", function() {
@@ -53,6 +92,7 @@ resetButton.addEventListener("click", function() {
 	}
 	h1.style.background = "steelblue";
 	resetButton.textContent = "New Colours";
+	messageDisplay.textContent = "";
 });
 
 colourDisplay.textContent = pickedColour;
