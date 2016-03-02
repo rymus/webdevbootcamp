@@ -21,16 +21,6 @@ for(var i = 0; i < modeButtons.length; i++) {
 	});
 }
 
-		// NOTE TO SELF!!!
-		// For some reason, after the above (and below) changes,
-		// only three squares are appearing, even in hard mode.
-		//
-		// Check if 6 colours are being added to the array
-		// or if 6 colours are being added, check that the last
-		// three squares aren't remaining hidden (style.display = "none")
-
-
-
 function reset() {
 	colours = generateRandomColours(numSquares); // generate new colours
 	pickedColour = pickColour(); // pick a new random colour
@@ -41,6 +31,7 @@ function reset() {
 	for(var i = 0; i < squares.length; i++) {
 		if(colours[i]) {
 			squares[i].style.background = colours[i];
+			squares[i].style.display = "block"; // *** added this to ensure visibility of last 3 colours when changing from easy mode back to hard mode.
 		}
 		else {
 			squares[i].style.display = "none";
